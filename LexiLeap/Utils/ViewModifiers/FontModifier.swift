@@ -41,12 +41,12 @@ struct DisplayMediumRegular : ViewModifier{
 
 struct DisplayButtonLarge : ViewModifier{
     func body(content: Content) -> some View {
-        return content.font(.system(size: 24,weight: .regular))
+        return content.font(.system(size: 24,weight: .bold))
     }
 }
 struct DisplayButtonSmall : ViewModifier{
     func body(content: Content) -> some View {
-        return content.font(.system(size: 12,weight: .bold))
+        return content.font(.system(size: 14,weight: .bold))
     }
 }
 

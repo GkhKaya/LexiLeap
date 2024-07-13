@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct LexiLeapApp: App {
+    init(){
+        UITraitCollection.current = UITraitCollection(userInterfaceStyle: .light)
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainOnboardView()
+                .environment(\.colorScheme,.light)
         }
     }
 }

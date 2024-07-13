@@ -9,6 +9,21 @@ import Foundation
 import SwiftUI
 struct LocaleKeys {
     
+    enum General : String{
+        case pass  = "pass"
+        case skip  = "skip"
+        case login  = "login"
+        case register  = "register"
+    }
+    
+    enum OnboardView : String{
+        case welcomeLexileap = "welcomeLexileap"
+        case workWithWordListedByLevel = "workWithWordListedByLevel"
+        case searchForTheWordYouWantLearnAllDetail = "searchForTheWordYouWantLearnAllDetail"
+        case createFlashcards = "createFlashcards"
+        case createForTheFlashardYouWantAndRepaet = "createForTheFlashardYouWantAndRepaet"
+        case wideVocabBank = "wideVocabBank"
+    }
 }
 
 extension String{

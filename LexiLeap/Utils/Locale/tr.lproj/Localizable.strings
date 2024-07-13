@@ -6,3 +6,17 @@
   
 */
 
+//General
+"pass" = "Geç";
+"skip"= "Atla";
+"login"= "Giriş yap";
+"register"= "Kayıt ol";
+
+//Onboard Screens
+
+"welcomeLexileap" = "LexiLeap'e Hoşgeldin";
+"workWithWordListedByLevel" = "Seviyelere göre listelenmiş kelimelerle çalış.";
+"wideVocabBank" = "Geniş kelime haznesi";
+"searchForTheWordYouWantLearnAllDetail" = "İstediğin kelimeyi ara ve tüm detaylarını öğren";
+"createFlashcards" = "Kelime kartları oluştur";
+"createForTheFlashardYouWantAndRepaet"  = "İstediğin kelime kartını oluştur ve tekrar et";
