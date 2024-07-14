@@ -1,6 +1,26 @@
 # LexiLeap
----
 
+Lexileap is an open source English language learning application that uses the Turkish language.
+
+---
+## Features that will be in the app.
+| Feature                  | Description             |
+|--------------------------|-------------------------|
+| Word search              | Search for specific words in the dictionary. |
+| Word details             | Get detailed information about each word. |
+| Phonetic information     | Access phonetic information for pronunciation help. |
+| Example sentences        | See example sentences using the word. |
+| Synonyms and antonyms    | Find synonyms and antonyms for each word. |
+| Word derivation          | Learn about the derivation of words. |
+| Etymology                | Explore the etymology of words. |
+| Pronunciation            | Listen to the correct pronunciation of words. |
+| Word of the day          | Discover a new word every day. |
+| Simple quiz system       | Test your knowledge with simple quizzes. |
+| Progress tracking        | Track your learning progress. |
+| Offline mode             | Use the application without an internet connection. |
+| Flashcards               | Use flashcards for efficient learning. |
+
+---
 
 ### UI Components
 ---
