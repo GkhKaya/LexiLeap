@@ -11,6 +11,10 @@
 "skip"= "Atla";
 "login"= "Giriş yap";
 "register"= "Kayıt ol";
+"email" = "E-Posta";
+"password" = "Şifre";
+"or" = "veya";
+
 
 //Onboard Screens
 
@@ -20,3 +24,13 @@
 "searchForTheWordYouWantLearnAllDetail" = "İstediğin kelimeyi ara ve tüm detaylarını öğren";
 "createFlashcards" = "Kelime kartları oluştur";
 "createForTheFlashardYouWantAndRepaet"  = "İstediğin kelime kartını oluştur ve tekrar et";
+
+//Auth Screens
+"welconeLoginText" = "Hoşgeldin. Lütfen kaldığın yerden devam etmek için giriş yap.";
+"welconeSignUpText" = "Hoşgeldin. Hesap oluşturmak için lütfen E-Posta ve parola gir";
+"exampleMail" = "ornek@mail.com";
+"forgotPassword" = "Şifremi Unuttum";
+"signInWithGoogle" = "Google ile giriş yap";
+"signUpWithGoogle" = "Google ile hesap oluştur";
+"signInWithApple" = "Apple ile giriş yap";
+"signUpWithApple" = "Apple ile hesap oluştur";

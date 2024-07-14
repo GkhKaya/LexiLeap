@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+
+struct DisplayExtraLargeBold : ViewModifier{
+    func body(content: Content) -> some View {
+        return content.font(.system(size: 30,weight: .bold))
+    }
+}
+
 struct DisplayLargeBlack : ViewModifier{
     func body(content: Content) -> some View {
         return content.font(.system(size: 24,weight: .black))
@@ -25,6 +32,19 @@ struct DisplayLargeRegular : ViewModifier{
         return content.font(.system(size: 24,weight: .regular))
     }
 }
+
+struct DisplayNormalBold : ViewModifier{
+    func body(content: Content) -> some View {
+        return content.font(.system(size: 18,weight: .bold))
+    }
+}
+
+struct DisplayNormalRegular : ViewModifier{
+    func body(content: Content) -> some View {
+        return content.font(.system(size: 18,weight: .regular))
+    }
+}
+
 
 struct DisplayMediumBold : ViewModifier{
     func body(content: Content) -> some View {
