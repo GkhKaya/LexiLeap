@@ -1,13 +1,14 @@
 //
-//  LoginViewViewModel.swift
+//  SignUpViewModel.swift
 //  LexiLeap
 //
-//  Created by Gokhan Kaya on 14.07.2024.
+//  Created by Gokhan Kaya on 15.07.2024.
 //
 
 import Foundation
 
-final class LoginViewViewModel : ObservableObject{
+final class SignUpViewModel : ObservableObject{
     @Published var email : String = ""
     @Published var password : String = ""
+    
 }

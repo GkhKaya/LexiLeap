@@ -1,14 +1,14 @@
 //
-//  LoginView.swift
+//  SignUpView.swift
 //  LexiLeap
 //
-//  Created by Gokhan Kaya on 14.07.2024.
+//  Created by Gokhan Kaya on 15.07.2024.
 //
 
 import SwiftUI
 
-struct LoginView: View {
-    @ObservedObject private var vm = LoginViewViewModel()
+struct SignUpView: View {
+    @ObservedObject private var vm = SignUpViewModel()
     var body: some View {
         NavigationStack{
             GeometryReader{geometry in
@@ -17,30 +17,30 @@ struct LoginView: View {
                     
                     VStack{
                         Rectangle().clipShape(RoundedRectangle(cornerRadius: ProjectRadius.extraLarge.rawValue)).foregroundStyle(.estateBlue)/*.padding(.bottom,geometry.dh(height: 0.45))*/
-                            .frame(height: geometry.dh(height: 0.65))
+                            .frame(height: geometry.dh(height: 0.70))
                         Spacer()
-                            
-                    }
+                        
+                    }.ignoresSafeArea()
                     
                     VStack{
                         
-//                        Title
+                        //                        Title
+                        //                        HStack {
+                        //                            Text(LocaleKeys.General.register.rawValue.locale())
+                        //                                .modifier(DisplayExtraLargeBold())
+                        //                                .foregroundStyle(.white)
+                        //                            Spacer()
+                        //                        }
+                        //                        Welcome text
                         HStack {
-                            Text(LocaleKeys.General.login.rawValue.locale())
-                                .modifier(DisplayExtraLargeBold())
-                                .foregroundStyle(.white)
-                            Spacer()
-                        }.padding(.top,ProjectPaddings.huge.rawValue)
-//                        Welcome text
-                        HStack {
-                            Text(LocaleKeys.AuthView.welconeLoginText.rawValue.locale())
+                            Text(LocaleKeys.AuthView.welconeSignUpText.rawValue.locale())
                                 .modifier(DisplayMediumRegular())
                                 .foregroundColor(.white)
                             Spacer()
                         }.padding(.top,ProjectPaddings.small.rawValue)
                         
-                       
-//                        Login form
+                        
+                        //                        Login form
                         VStack(spacing:ProjectPaddings.large.rawValue) {
                             HStack {
                                 TextField("E-Posta", text: $vm.email)
@@ -63,8 +63,8 @@ struct LoginView: View {
                                 Spacer()
                             }
                         }.padding(.top,ProjectPaddings.massive.rawValue)
-                           
-//                        Forgot button
+                        
+                        //                        Forgot button
                         Button{
                             
                         }label: {
@@ -75,35 +75,25 @@ struct LoginView: View {
                                 Spacer()
                             }.padding(.top,ProjectPaddings.extraSmall.rawValue)
                         }
-                       
-//                        Login button
-                        Button(action: {
+                        
+                        //                        Login button
+                        TextButtonWithBg(action:{},text: LocaleKeys.General.register.rawValue.locale())
+                        
+                        //         Or text
+                        HStack {
+                            Spacer()
+                            Text(LocaleKeys.General.or.rawValue.locale())
+                                .modifier(DisplayButtonSmall())
+                                .foregroundStyle(.princetonOrange)
+                                .padding(.top,100)
+                            Spacer()
                             
-                        }) {
-                            Text(LocaleKeys.General.login.rawValue.locale())
-                                .modifier(DisplayButtonLarge())
-                                .foregroundStyle(.white)
-                                .padding(.vertical, ProjectPaddings.small.rawValue)
-                                .padding(.horizontal, ProjectPaddings.massive.rawValue)
-                                .background(Color.princetonOrange)
-                                .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
-                                .padding(.top, ProjectPaddings.massive.rawValue)
                         }
                         
-//         Or text
-                        Text(LocaleKeys.General.or.rawValue.locale())
-                            .modifier(DisplayButtonSmall())
-                            .foregroundStyle(.princetonOrange)
-                            .padding(.top,100)
-                        
-//                        Sign in with google button
+                        //                        Sign in with google button
                         HStack(alignment:.center){
-                            Image(ProjectImages.Icons.icGoogle.rawValue)
-                                .padding(.trailing,ProjectPaddings.normal.rawValue)
-                                .padding(.leading,ProjectPaddings.normal.rawValue)
-                            Text(LocaleKeys.AuthView.signInWithGoogle.rawValue.locale())
-                                .foregroundStyle(.white)
-                                .modifier(DisplayMediumBold())
+                            OtherAuthMethodButton(action: {}, icon: ProjectImages.Icons.icGoogle.rawValue, text: LocaleKeys.AuthView.signUpWithGoogle.rawValue.locale())
+                            
                             Spacer()
                         }
                         
@@ -113,15 +103,11 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.large.rawValue))
                         .padding(.top,ProjectPaddings.large.rawValue)
                         
-//                        Sign in with apple button
-
+                        //                        Sign in with apple button
+                        
                         HStack(alignment:.center){
-                            Image(ProjectImages.Icons.icApple.rawValue)
-                                .padding(.trailing,ProjectPaddings.normal.rawValue)
-                                .padding(.leading,ProjectPaddings.normal.rawValue)
-                            Text(LocaleKeys.AuthView.signUpWithApple.rawValue.locale())
-                                .foregroundStyle(.white)
-                                .modifier(DisplayMediumBold())
+                            OtherAuthMethodButton(action: {}, icon: ProjectImages.Icons.icApple.rawValue, text: LocaleKeys.AuthView.signUpWithApple.rawValue.locale())
+                            
                             Spacer()
                         }
                         .frame(width: geometry.dw(width:0.8))
@@ -131,7 +117,14 @@ struct LoginView: View {
                         .padding(.top,ProjectPaddings.normal.rawValue)
                         Spacer()
                     }.padding(.all,ProjectPaddings.normal.rawValue)
-                }.ignoresSafeArea()
+                    
+                }.toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text(LocaleKeys.General.register.rawValue.locale())
+                            .modifier(DisplayExtraLargeBold())
+                            .foregroundColor(.white) // Başlık rengi buradan değiştirilebilir
+                    }
+                }
                 
             }
         }
@@ -139,5 +132,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    SignUpView()
 }

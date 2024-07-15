@@ -37,6 +37,7 @@ struct LocaleKeys {
         case signUpWithGoogle = "signUpWithGoogle"
         case signInWithApple = "signInWithApple"
         case signUpWithApple = "signUpWithApple"
+        case createAccount = "createAccount"
     }
 }
 

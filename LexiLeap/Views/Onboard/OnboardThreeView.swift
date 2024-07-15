@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct OnboardThreeView: View {
-    @State private var navigationPath = NavigationPath()
 
     @ObservedObject var viewModel : OnboardViewViewModel
     var body: some View {
         
-        NavigationStack(path:$navigationPath) {
+        NavigationStack() {
             GeometryReader{geometry in
                 
                 Image(ProjectImages.OnboardScreen.onboard3.rawValue)
@@ -52,9 +51,9 @@ struct OnboardThreeView: View {
                             }
                             
                             //Skip button
-                            Button(action: {
-                                skipToContentView()
-                            }) {
+                            NavigationLink {
+                                LoginView()
+                            } label: {
                                 Text(LocaleKeys.General.skip.rawValue.locale())
                                     .modifier(DisplayButtonSmall())
                                     .foregroundStyle(.princetonOrange)
@@ -67,20 +66,12 @@ struct OnboardThreeView: View {
                     }
                 }.padding(.top,geometry.dh(height: 0.45))
                     .ignoresSafeArea()
-                    .navigationDestination(for: String.self) { value in
-                        if value == "ContentView" {
-                            ContentView()
-                        }
-                    }
+                    
             }
         }
         
     }
-    private func skipToContentView() {
-        // Clear the current path and push the new view
-        navigationPath.removeLast(navigationPath.count)
-        navigationPath.append("ContentView")
-    }
+  
 }
 
 #Preview {
