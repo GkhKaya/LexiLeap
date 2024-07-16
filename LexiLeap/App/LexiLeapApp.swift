@@ -16,7 +16,7 @@ struct LexiLeapApp: App {
     }
     var body: some Scene {
         WindowGroup {
-          RootView()
+          LoginView()
                 .environment(\.colorScheme,.light)
         }
     }

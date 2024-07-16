@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OnboardOneView: View {
     @StateObject var viewModel: OnboardViewViewModel
+    
 
 
     var body: some View {

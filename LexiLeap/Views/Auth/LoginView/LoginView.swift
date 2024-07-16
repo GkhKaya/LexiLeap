@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject private var vm = LoginViewViewModel()
+    
     var body: some View {
         NavigationStack{
             GeometryReader{geometry in
@@ -48,7 +49,7 @@ struct LoginView: View {
                             
                             
                             HStack {
-                                SecureField("Şifre", text: $vm.email)
+                                SecureField("Şifre", text: $vm.password)
                                 
                                     .padding(.horizontal)
                                     .padding(.vertical,ProjectPaddings.small.rawValue)
@@ -62,7 +63,9 @@ struct LoginView: View {
                         JustTextButton(action: {}, text: LocaleKeys.AuthView.forgotPassword.rawValue.locale())
                         
                         //                        Login button
-                        TextButtonWithBg(action:{},text: LocaleKeys.General.login.rawValue.locale())
+                        TextButtonWithBg(action:{
+                            vm.signIn()
+                        },text: LocaleKeys.General.login.rawValue.locale())
                         
                         //         Or text
                         HStack {
@@ -114,6 +117,9 @@ struct LoginView: View {
                     }.padding(.all,ProjectPaddings.normal.rawValue)
                         .navigationDestination(isPresented: $vm.gotoSignUpView) {
                             SignUpView()
+                        }
+                        .navigationDestination(isPresented: $vm.gotoSettingsView) {
+                            SettingsView()
                         }
                 }.toolbar {
                     ToolbarItem(placement: .topBarLeading) {
