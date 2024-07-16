@@ -25,6 +25,7 @@ final class LoginViewViewModel : ObservableObject{
                 print("Success")
                 print(returnUserData)
                 gotoSettingsView = true
+                CacheManager.shared.isUserloggedIn = true
             }catch{
                 print("Error: \(error)")
             }

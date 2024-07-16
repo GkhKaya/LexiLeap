@@ -11,18 +11,22 @@ struct SettingsView: View {
     @ObservedObject private var vm = SettingsViewModel()
 //    @Binding var showSignInView : Bool
     var body: some View {
-        List{
-            Button{
-                Task{
-                    do{
-                        try vm.logOut()
-//                        showSignInView = true
-                    }catch{
-                        print(error)
+        NavigationStack{
+            List{
+                Button{
+                    Task{
+                        do{
+                            try vm.logOut()
+                            //                        showSignInView = true
+                        }catch{
+                            print(error)
+                        }
                     }
+                }label:{
+                    Text("Log out")
                 }
-            }label:{
-                Text("Log out")
+            }.navigationDestination(isPresented: $vm.goToSignInView) {
+                LoginView()
             }
         }
     }

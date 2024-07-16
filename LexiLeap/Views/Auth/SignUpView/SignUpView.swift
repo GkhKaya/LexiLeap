@@ -117,6 +117,9 @@ struct SignUpView: View {
                         .padding(.top,ProjectPaddings.normal.rawValue)
                         Spacer()
                     }.padding(.all,ProjectPaddings.normal.rawValue)
+                        .navigationDestination(isPresented: $vm.goToSettingsView) {
+                            SettingsView()
+                        }
                     
                 }.toolbar {
                     ToolbarItem(placement: .topBarLeading) {

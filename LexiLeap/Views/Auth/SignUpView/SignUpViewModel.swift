@@ -11,6 +11,7 @@ import Foundation
 final class SignUpViewModel : ObservableObject{
     @Published var email : String = ""
     @Published var password : String = ""
+    @Published var goToSettingsView : Bool = false
     
     func createUser(){
         guard !email.isEmpty,!password.isEmpty else {
@@ -21,6 +22,8 @@ final class SignUpViewModel : ObservableObject{
         Task{
             do{
                 let returnUserData = try await AuthManager.shared.createUser(email:email,password: password)
+                goToSettingsView = true
+                CacheManager.shared.isUserloggedIn = true
                 print("Success")
                 print(returnUserData)
             }catch{

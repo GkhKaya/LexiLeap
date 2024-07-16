@@ -9,7 +9,10 @@ import Foundation
 
 @MainActor
 final class SettingsViewModel : ObservableObject{
+    @Published var goToSignInView : Bool = false
     func logOut() throws {
         try AuthManager.shared.signOut()
+        goToSignInView = true
+        CacheManager.shared.isUserloggedIn = false
     }
 }

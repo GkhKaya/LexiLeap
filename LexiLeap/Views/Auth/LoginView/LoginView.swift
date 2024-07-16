@@ -119,7 +119,7 @@ struct LoginView: View {
                             SignUpView()
                         }
                         .navigationDestination(isPresented: $vm.gotoSettingsView) {
-                            SettingsView()
+                            SettingsView().navigationBarBackButtonHidden()
                         }
                 }.toolbar {
                     ToolbarItem(placement: .topBarLeading) {
