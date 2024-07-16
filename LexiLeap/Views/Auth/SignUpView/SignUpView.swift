@@ -54,7 +54,7 @@ struct SignUpView: View {
                             
                             
                             HStack {
-                                SecureField("Şifre", text: $vm.email)
+                                SecureField("Şifre", text: $vm.password)
                                 
                                     .padding(.horizontal)
                                     .padding(.vertical,ProjectPaddings.small.rawValue)
@@ -76,8 +76,8 @@ struct SignUpView: View {
                             }.padding(.top,ProjectPaddings.extraSmall.rawValue)
                         }
                         
-                        //                        Login button
-                        TextButtonWithBg(action:{},text: LocaleKeys.General.register.rawValue.locale())
+                        //                        Register button
+                        TextButtonWithBg(action:{vm.createUser()},text: LocaleKeys.General.register.rawValue.locale())
                         
                         //         Or text
                         HStack {
@@ -90,7 +90,7 @@ struct SignUpView: View {
                             
                         }
                         
-                        //                        Sign in with google button
+                        //                        Sign up with google button
                         HStack(alignment:.center){
                             OtherAuthMethodButton(action: {}, icon: ProjectImages.Icons.icGoogle.rawValue, text: LocaleKeys.AuthView.signUpWithGoogle.rawValue.locale())
                             
@@ -103,7 +103,7 @@ struct SignUpView: View {
                         .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.large.rawValue))
                         .padding(.top,ProjectPaddings.large.rawValue)
                         
-                        //                        Sign in with apple button
+                        //                        Sign up with apple button
                         
                         HStack(alignment:.center){
                             OtherAuthMethodButton(action: {}, icon: ProjectImages.Icons.icApple.rawValue, text: LocaleKeys.AuthView.signUpWithApple.rawValue.locale())
