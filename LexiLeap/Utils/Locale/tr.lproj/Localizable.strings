@@ -14,6 +14,7 @@
 "email" = "E-Posta";
 "password" = "Şifre";
 "or" = "veya";
+"seeAll" = "Tümünü Gör";
 
 
 //Onboard Screens
@@ -35,3 +36,7 @@
 "signInWithApple" = "Apple ile giriş yap";
 "signUpWithApple" = "Apple ile hesap oluştur";
 "createAccount" = "Hesap Oluştur";
+
+//Home View
+"wordOfTheDay" = "Günün kelimesi";
+"yourFlashcard" = "Flashcard'ların";

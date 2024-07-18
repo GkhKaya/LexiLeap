@@ -62,6 +62,9 @@ Ds_Store
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
+RestApi
+LexiLeap/App/google-services.json
+
 Carthage/Build/
 
 # Accio dependency management
@@ -106,5 +109,8 @@ xcuserdata
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+
+
+
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpackagemanager,swiftpm

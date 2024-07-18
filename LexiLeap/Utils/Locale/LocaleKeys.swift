@@ -17,6 +17,7 @@ struct LocaleKeys {
         case email  = "email"
         case password  = "password"
         case or  = "or"
+        case seeAll  = "seeAll"
     }
     
     enum OnboardView : String{
@@ -38,6 +39,11 @@ struct LocaleKeys {
         case signInWithApple = "signInWithApple"
         case signUpWithApple = "signUpWithApple"
         case createAccount = "createAccount"
+    }
+    
+    enum HomeView : String{
+        case wordOfTheDay = "wordOfTheDay"
+        case yourFlashcard = "yourFlashcard"
     }
 }
 
