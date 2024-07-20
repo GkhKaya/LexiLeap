@@ -11,6 +11,8 @@ struct WordModel: Codable, Identifiable {
     let name: String?
     let level: Int?
     let createdAt, updatedAt: String?
+    var translatedName: String? // Çevrilmiş kelime
+
 }
 
 
