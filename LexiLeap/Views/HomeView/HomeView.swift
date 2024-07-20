@@ -101,7 +101,7 @@ struct HomeView: View {
                         }
                     }
                 }
-            }
+            }    .background(.cottonBall)
             .searchable(text: $vm.searchWord)
         }
     }
@@ -119,7 +119,7 @@ struct WordCard: View {
      var seeDetailAction:()->Void
     var body: some View {
         ZStack{
-            Rectangle().frame(height: geometry.dh(height: 0.21)).foregroundStyle(Color.orochimaruGray).clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
+            Rectangle().frame(height: geometry.dh(height: 0.21)).foregroundStyle(Color.white).clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
             
             VStack{
                 

@@ -121,7 +121,9 @@ struct SignUpView: View {
                             SettingsView()
                         }
                     
-                }.toolbar {
+                }
+                .background(.cottonBall)
+                .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(LocaleKeys.General.register.rawValue.locale())
                             .modifier(DisplayExtraLargeBold())

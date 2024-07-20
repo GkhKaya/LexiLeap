@@ -121,7 +121,9 @@ struct LoginView: View {
                         .navigationDestination(isPresented: $vm.gotoSettingsView) {
                             SettingsView().navigationBarBackButtonHidden()
                         }
-                }.toolbar {
+                }
+                .background(.cottonBall)
+                .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text(LocaleKeys.General.login.rawValue.locale())
                             .modifier(DisplayExtraLargeBold())

@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 
+
 @main
 struct LexiLeapApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -18,6 +19,7 @@ struct LexiLeapApp: App {
         WindowGroup {
           RootView()
                 .environment(\.colorScheme,.light)
+            
         }
     }
 }
