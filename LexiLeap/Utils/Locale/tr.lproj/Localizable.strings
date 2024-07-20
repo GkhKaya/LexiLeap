@@ -6,37 +6,38 @@
   
 */
 
+
 //General
-"pass" = "Geç";
-"skip"= "Atla";
-"login"= "Giriş yap";
-"register"= "Kayıt ol";
-"email" = "E-Posta";
-"password" = "Şifre";
-"or" = "veya";
-"seeAll" = "Tümünü Gör";
+"pass" = "Pass";
+"skip"= "Skip";
+"login"= "Login";
+"register"= "Sign Up";
+"email" = "Email";
+"password" = "Password";
+"or" = "or";
+"seeAll" = "See all";
 
 
 //Onboard Screens
 
-"welcomeLexileap" = "LexiLeap'e Hoşgeldin";
-"workWithWordListedByLevel" = "Seviyelere göre listelenmiş kelimelerle çalış.";
-"wideVocabBank" = "Geniş kelime haznesi";
-"searchForTheWordYouWantLearnAllDetail" = "İstediğin kelimeyi ara ve tüm detaylarını öğren";
-"createFlashcards" = "Kelime kartları oluştur";
-"createForTheFlashardYouWantAndRepaet"  = "İstediğin kelime kartını oluştur ve tekrar et";
+"welcomeLexileap" = "Welcome to LexiLap";
+"workWithWordListedByLevel" = "Work with word listed by level";
+"wideVocabBank" = "Wide vocabulary bank";
+"searchForTheWordYouWantLearnAllDetail" = "Search for the word you want and learn all the details";
+"createFlashcards" = "Create flashcards";
+"createForTheFlashardYouWantAndRepaet" = "Create the flashcard you want and repeat";
 
 //Auth Screens
-"welconeLoginText" = "Hoşgeldin. Lütfen kaldığın yerden devam etmek için giriş yap.";
-"welconeSignUpText" = "Hoşgeldin. Hesap oluşturmak için lütfen E-Posta ve parola gir";
-"exampleMail" = "ornek@mail.com";
-"forgotPassword" = "Şifremi Unuttum";
-"signInWithGoogle" = "Google ile giriş yap";
-"signUpWithGoogle" = "Google ile hesap oluştur";
-"signInWithApple" = "Apple ile giriş yap";
-"signUpWithApple" = "Apple ile hesap oluştur";
-"createAccount" = "Hesap Oluştur";
+"welconeLoginText" = "Welcome. Please log in to continue where you left off.";
+"welconeSignUpText" = "Welcome. Please enter your email and password to create an account.";
+"exampleMail" = "example@mail.com";
+"forgotPassword" = "Forgot Password";
+"signInWithGoogle" = "Sign in with Google";
+"signUpWithGoogle" = "Sign up with Google";
+"signInWithApple" = "Sign in with Apple";
+"signUpWithApple" = "Sign up with Apple";
+"createAccount" = "Create Account";
 
 //Home View
-"wordOfTheDay" = "Günün kelimesi";
-"yourFlashcard" = "Flashcard'ların";
+"wordOfTheDay" = "Word of the Day";
+"yourFlashcard" = "Your Flashcards";

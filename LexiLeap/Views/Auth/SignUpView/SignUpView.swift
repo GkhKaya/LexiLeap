@@ -43,7 +43,7 @@ struct SignUpView: View {
                         //                        Login form
                         VStack(spacing:ProjectPaddings.large.rawValue) {
                             HStack {
-                                TextField("E-Posta", text: $vm.email)
+                                TextField(LocaleKeys.General.email.rawValue.locale(), text: $vm.email)
                                 
                                     .padding(.horizontal)
                                     .padding(.vertical,ProjectPaddings.small.rawValue)
@@ -54,7 +54,7 @@ struct SignUpView: View {
                             
                             
                             HStack {
-                                SecureField("Şifre", text: $vm.password)
+                                SecureField(LocaleKeys.General.password.rawValue.locale(), text: $vm.password)
                                 
                                     .padding(.horizontal)
                                     .padding(.vertical,ProjectPaddings.small.rawValue)

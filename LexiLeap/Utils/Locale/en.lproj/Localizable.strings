@@ -5,3 +5,38 @@
   Created by Gokhan Kaya on 11.07.2024.
   
 */
+
+//General
+"pass" = "Geç";
+"skip"= "Atla";
+"login"= "Giriş yap";
+"register"= "Kayıt ol";
+"email" = "E-Posta";
+"password" = "Şifre";
+"or" = "veya";
+"seeAll" = "Tümünü Gör";
+
+
+//Onboard Screens
+
+"welcomeLexileap" = "LexiLeap'e Hoşgeldin";
+"workWithWordListedByLevel" = "Seviyelere göre listelenmiş kelimelerle çalış.";
+"wideVocabBank" = "Geniş kelime haznesi";
+"searchForTheWordYouWantLearnAllDetail" = "İstediğin kelimeyi ara ve tüm detaylarını öğren";
+"createFlashcards" = "Kelime kartları oluştur";
+"createForTheFlashardYouWantAndRepaet"  = "İstediğin kelime kartını oluştur ve tekrar et";
+
+//Auth Screens
+"welconeLoginText" = "Hoşgeldin. Lütfen kaldığın yerden devam etmek için giriş yap.";
+"welconeSignUpText" = "Hoşgeldin. Hesap oluşturmak için lütfen E-Posta ve parola gir";
+"exampleMail" = "ornek@mail.com";
+"forgotPassword" = "Şifremi Unuttum";
+"signInWithGoogle" = "Google ile giriş yap";
+"signUpWithGoogle" = "Google ile hesap oluştur";
+"signInWithApple" = "Apple ile giriş yap";
+"signUpWithApple" = "Apple ile hesap oluştur";
+"createAccount" = "Hesap Oluştur";
+
+//Home View
+"wordOfTheDay" = "Günün kelimesi";
+"yourFlashcard" = "Flashcard'ların";
