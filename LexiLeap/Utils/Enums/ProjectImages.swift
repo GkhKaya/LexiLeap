@@ -19,4 +19,13 @@ struct ProjectImages{
         case onboard2 = "onboard2"
         case onboard3 = "onboard3"
     }
+    
+    enum LevelLogo : String{
+        case a1Logo = "a1Logo"
+        case a2Logo = "a2Logo"
+        case b1Logo = "b1Logo"
+        case b2Logo = "b2Logo"
+        case c1Logo = "c1Logo"
+        case c2Logo = "c2Logo"
+    }
 }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "b2logo.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
