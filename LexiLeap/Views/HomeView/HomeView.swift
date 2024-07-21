@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var vm = HomeViewViewModel()
-
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -31,27 +31,32 @@ struct HomeView: View {
                             }
                             Spacer()
                         }
-
+                        
                         HStack {
                             Spacer()
                             JustTextButton(action: {}, text: LocaleKeys.General.seeAll.rawValue.locale())
                         }
                         .padding(.top, ProjectPaddings.normal.rawValue)
-
+                        
                         VStack {
                             ForEach(vm.randomWords) { word in
-                                WordCard(
-                                    geometry: geometry,
-                                    word: word.name ?? "",
-                                    plusAction: {},
-                                    seeDetailAction: {},
-                                    selectedLevel: word.level
+                                Button {
                                     
-                                )
-                                .padding(.top, ProjectPaddings.extraSmall.rawValue)
+                                }label:{
+                                    
+                                    WordCard(
+                                        geometry: geometry,
+                                        word: word.name ?? "",
+                                        plusAction: {},
+                                        seeDetailAction: {},
+                                        selectedLevel: word.level
+                                        
+                                    )
+                                    .padding(.top, ProjectPaddings.extraSmall.rawValue)
+                                }.tint(.black)
                             }
                         }
-
+                        
                         // Word of the day title
                         HStack {
                             Text(LocaleKeys.HomeView.wordOfTheDay.rawValue.locale())
@@ -59,16 +64,19 @@ struct HomeView: View {
                             Spacer()
                         }
                         .padding(.top, ProjectPaddings.normal.rawValue)
-
+                        
                         // Word of the day card
-                        WordCard(
-                            geometry: geometry,
-                            word: "Hello",
-                     
-                            plusAction: {},
-                            seeDetailAction: {}
-                        )
 
+                            WordCard(
+                                geometry: geometry,
+                                word: vm.wordOfDay?.name ?? "",
+                         
+                                plusAction: {},
+                                seeDetailAction: {},
+                                selectedLevel: vm.wordOfDay?.level ?? 1
+                            )
+                        }
+                        
                         HStack {
                             Text(LocaleKeys.HomeView.yourFlashcard.rawValue.locale())
                                 .padding(.top, ProjectPaddings.normal.rawValue)
@@ -76,7 +84,7 @@ struct HomeView: View {
                             Spacer()
                             JustTextButton(action: {}, text: LocaleKeys.General.seeAll.rawValue.locale())
                         }
-
+                        
                         HStack {
                             ZStack {
                                 Rectangle()
@@ -98,15 +106,15 @@ struct HomeView: View {
                     .onAppear {
                         Task {
                             await vm.fetchWord()
-                      
+                            
                         }
                     }
                 }
             }    .background(.cottonBall)
-            .searchable(text: $vm.searchWord)
+                .searchable(text: $vm.searchWord)
         }
     }
-}
+
 
 #Preview {
     HomeView()
@@ -133,8 +141,8 @@ struct WordCard: View {
                         .padding(.trailing,ProjectPaddings.small.rawValue)
                     
                     Divider()
-                                    .background(Color.cottonBall)
-                                    
+                        .background(Color.cottonBall)
+                    
                     Text(word)
                         .modifier(DisplayLargeBold())
                         .padding(.leading,ProjectPaddings.small.rawValue)
@@ -148,21 +156,21 @@ struct WordCard: View {
     }
     
     func getLevelImage(for level: Int?) -> String {
-            switch level {
-            case 1:
-                return ProjectImages.LevelLogo.a1Logo.rawValue
-            case 2:
-                return ProjectImages.LevelLogo.a2Logo.rawValue
-            case 3:
-                return ProjectImages.LevelLogo.b1Logo.rawValue
-            case 4:
-                return ProjectImages.LevelLogo.b2Logo.rawValue
-            case 5:
-                return ProjectImages.LevelLogo.c1Logo.rawValue
-            case 6:
-                return ProjectImages.LevelLogo.c2Logo.rawValue
-            default:
-                return "" // Varsayılan logo
-            }
+        switch level {
+        case 1:
+            return ProjectImages.LevelLogo.a1Logo.rawValue
+        case 2:
+            return ProjectImages.LevelLogo.a2Logo.rawValue
+        case 3:
+            return ProjectImages.LevelLogo.b1Logo.rawValue
+        case 4:
+            return ProjectImages.LevelLogo.b2Logo.rawValue
+        case 5:
+            return ProjectImages.LevelLogo.c1Logo.rawValue
+        case 6:
+            return ProjectImages.LevelLogo.c2Logo.rawValue
+        default:
+            return "" // Varsayılan logo
         }
+    }
 }

@@ -11,29 +11,42 @@ import Combine
 final class HomeViewViewModel: ObservableObject {
     @Published var searchWord = ""
     @Published var selectedLevel: Int = 1
-    @Published var translatedWord :String = ""
+    @Published var translatedWord: String = ""
     @Published var words: [WordModel] = []
-//    @Published var translatedWords : TranslationResponse?
-
+    @Published var wordOfDay: WordModel?
     @Published var randomWords: [WordModel] = []
-
+    
     private let url = "http://api.junic.pro:3000/words"
-    private let translateApiUrl = "https://api.mymemory.translated.net/get?q=hello!&langpair=en|tr"
-
     private let networkManager = NetworkManager()
-
+    
+    
     func fetchWord() async {
         do {
             if let words: [WordModel] = try await networkManager.fetchResult(url: url, headers: nil, parameters: nil, type: [WordModel].self) {
                 self.words = words
                 updateRandomWords()
-//                translatedWord
-      
+                getDailyWord()
             }
         } catch {
             print("Failed to fetch words: \(error)")
         }
     }
+    
+    func updateRandomWords() {
+        let filteredWords = words.filter { $0.level == selectedLevel }
+        randomWords = Array(filteredWords.shuffled().prefix(2))
+    }
+    
+    func getDailyWord(){
+        let calendar = Calendar.current
+        let dayOfYear = calendar.ordinality(of: .day, in: .year, for: Date()) ?? 0
+        let index = dayOfYear % words.count
+        wordOfDay = words[index]
+    }
+}
+  
+
+
     
 //    func translateWord() async {
 //        
@@ -61,8 +74,3 @@ final class HomeViewViewModel: ObservableObject {
     
     
 
-    func updateRandomWords() {
-        let filteredWords = words.filter { $0.level == selectedLevel }
-        randomWords = Array(filteredWords.shuffled().prefix(2))
-    }
-}
