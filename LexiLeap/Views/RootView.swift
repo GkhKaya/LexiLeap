@@ -13,7 +13,7 @@ struct RootView: View {
         ZStack{
             if isLoggedIn{
                 NavigationStack{
-                    SettingsView()
+                    HomeView()
                 }
             }else{
                 NavigationStack{

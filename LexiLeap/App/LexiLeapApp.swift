@@ -17,7 +17,7 @@ struct LexiLeapApp: App {
     }
     var body: some Scene {
         WindowGroup {
-          RootView()
+          DetailView(word: WordModel(id: 1, name: "girl", level: 1, createdAt: nil, updatedAt: nil))
                 .environment(\.colorScheme,.light)
             
         }

@@ -118,8 +118,8 @@ struct LoginView: View {
                         .navigationDestination(isPresented: $vm.gotoSignUpView) {
                             SignUpView()
                         }
-                        .navigationDestination(isPresented: $vm.gotoSettingsView) {
-                            SettingsView().navigationBarBackButtonHidden()
+                        .navigationDestination(isPresented: $vm.gotoHomeView) {
+                            HomeView().navigationBarBackButtonHidden()
                         }
                 }
                 .background(.cottonBall)

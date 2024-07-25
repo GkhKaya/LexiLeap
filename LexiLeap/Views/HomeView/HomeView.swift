@@ -66,16 +66,15 @@ struct HomeView: View {
                         .padding(.top, ProjectPaddings.normal.rawValue)
                         
                         // Word of the day card
-
-                            WordCard(
-                                geometry: geometry,
-                                word: vm.wordOfDay?.name ?? "",
-                         
-                                plusAction: {},
-                                seeDetailAction: {},
-                                selectedLevel: vm.wordOfDay?.level ?? 1
-                            )
-                        }
+                        
+                        WordCard(
+                            geometry: geometry,
+                            word: vm.wordOfDay?.name ?? "",
+                            
+                            plusAction: {},
+                            seeDetailAction: {},
+                            selectedLevel: vm.wordOfDay?.level ?? 1
+                        )
                         
                         HStack {
                             Text(LocaleKeys.HomeView.yourFlashcard.rawValue.locale())
@@ -100,20 +99,35 @@ struct HomeView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
                             }
                         }
-                    }
-                    .padding(.all)
+                    }.padding(.all)
                     .navigationTitle("Homepage")
-                    .onAppear {
-                        Task {
-                            await vm.fetchWord()
-                            
-                        }
-                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                vm.goToSettingsView = true
+                            }label:{
+                                
+                                Image(systemName: "gearshape")
+                            }.tint(.black)
+                        }}
                 }
-            }    .background(.cottonBall)
-                .searchable(text: $vm.searchWord)
+                .navigationDestination(isPresented: $vm.goToSettingsView) {
+                    SettingsView()
+                }
+                .onAppear {
+                    Task {
+                        await vm.fetchWord()
+                        
+                    }
+                
+                
+                }
+            }.background(.cottonBall)
         }
+        
+        .searchable(text: $vm.searchWord)
     }
+}
 
 
 #Preview {

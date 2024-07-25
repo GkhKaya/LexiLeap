@@ -12,6 +12,7 @@ final class HomeViewViewModel: ObservableObject {
     @Published var searchWord = ""
     @Published var selectedLevel: Int = 1
     @Published var translatedWord: String = ""
+    @Published var goToSettingsView : Bool = false
     @Published var words: [WordModel] = []
     @Published var wordOfDay: WordModel?
     @Published var randomWords: [WordModel] = []
