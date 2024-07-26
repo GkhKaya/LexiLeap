@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var vm = HomeViewViewModel()
+    @State private var selectedWord: WordModel? = nil // Tıklanan kelimeyi saklamak için
     
     var body: some View {
         NavigationStack {
@@ -41,19 +42,18 @@ struct HomeView: View {
                         VStack {
                             ForEach(vm.randomWords) { word in
                                 Button {
-                                    
-                                }label:{
-                                    
+                                    selectedWord = word // Tıklanan kelimeyi sakla
+                                } label: {
                                     WordCard(
                                         geometry: geometry,
                                         word: word.name ?? "",
                                         plusAction: {},
                                         seeDetailAction: {},
                                         selectedLevel: word.level
-                                        
                                     )
                                     .padding(.top, ProjectPaddings.extraSmall.rawValue)
-                                }.tint(.black)
+                                }
+                                .tint(.black)
                             }
                         }
                         
@@ -66,11 +66,9 @@ struct HomeView: View {
                         .padding(.top, ProjectPaddings.normal.rawValue)
                         
                         // Word of the day card
-                        
                         WordCard(
                             geometry: geometry,
                             word: vm.wordOfDay?.name ?? "",
-                            
                             plusAction: {},
                             seeDetailAction: {},
                             selectedLevel: vm.wordOfDay?.level ?? 1
@@ -99,32 +97,36 @@ struct HomeView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
                             }
                         }
-                    }.padding(.all)
+                    }
+                    .padding(.all)
                     .navigationTitle("Homepage")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 vm.goToSettingsView = true
-                            }label:{
-                                
+                            } label: {
                                 Image(systemName: "gearshape")
-                            }.tint(.black)
-                        }}
+                            }
+                            .tint(.black)
+                        }
+                    }
                 }
-                .navigationDestination(isPresented: $vm.goToSettingsView) {
-                    SettingsView()
+                .navigationDestination(isPresented: Binding(
+                    get: { selectedWord != nil },
+                    set: { if !$0 { selectedWord = nil } }
+                )) {
+                    if let word = selectedWord {
+                        DetailView(wordName: word.name ?? "deneme", wordLevel: word.level ?? 1)
+                    }
                 }
                 .onAppear {
                     Task {
                         await vm.fetchWord()
-                        
                     }
-                
-                
                 }
-            }.background(.cottonBall)
+            }
+            .background(.cottonBall)
         }
-        
         .searchable(text: $vm.searchWord)
     }
 }

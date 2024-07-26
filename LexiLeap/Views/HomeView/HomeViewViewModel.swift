@@ -12,7 +12,7 @@ final class HomeViewViewModel: ObservableObject {
     @Published var searchWord = ""
     @Published var selectedLevel: Int = 1
     @Published var translatedWord: String = ""
-    @Published var goToSettingsView : Bool = false
+    @Published var goToSettingsView: Bool = false
     @Published var words: [WordModel] = []
     @Published var wordOfDay: WordModel?
     @Published var randomWords: [WordModel] = []
@@ -20,13 +20,14 @@ final class HomeViewViewModel: ObservableObject {
     private let url = "http://api.junic.pro:3000/words"
     private let networkManager = NetworkManager()
     
-    
     func fetchWord() async {
         do {
-            if let words: [WordModel] = try await networkManager.fetchResult(url: url, headers: nil, parameters: nil, type: [WordModel].self) {
-                self.words = words
-                updateRandomWords()
-                getDailyWord()
+            if let fetchedWords: [WordModel] = try await networkManager.fetchResult(url: url, headers: nil, parameters: nil, type: [WordModel].self) {
+                await MainActor.run {
+                    self.words = fetchedWords
+                    self.updateRandomWords()
+                    self.getDailyWord()
+                }
             }
         } catch {
             print("Failed to fetch words: \(error)")
@@ -38,7 +39,8 @@ final class HomeViewViewModel: ObservableObject {
         randomWords = Array(filteredWords.shuffled().prefix(2))
     }
     
-    func getDailyWord(){
+    func getDailyWord() {
+        guard !words.isEmpty else { return }
         let calendar = Calendar.current
         let dayOfYear = calendar.ordinality(of: .day, in: .year, for: Date()) ?? 0
         let index = dayOfYear % words.count

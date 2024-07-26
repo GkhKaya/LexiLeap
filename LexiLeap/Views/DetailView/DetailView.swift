@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject private var vm = DetailViewViewModel()
-    @State var word: WordModel
+    @State var wordName: String
+    @State var wordLevel: Int
     @State private var showAlert = false
     @State private var selectedCardIndex: Int? = nil
     @State private var selectedCardOffset: CGFloat = 0
@@ -22,10 +23,10 @@ struct DetailView: View {
                     VStack {
                         // Text and level
                         HStack {
-                            Text(word.name ?? "")
+                            Text(wordName)
                                 .modifier(DisplayLargeBold())
                             Spacer()
-                            switch word.level {
+                            switch wordLevel {
                             case 1:
                                 Text("A1")
                                     .foregroundStyle(.white)
@@ -59,9 +60,11 @@ struct DetailView: View {
                                             .padding(.top, ProjectPaddings.extraSmall.rawValue)
                                         
                                         Button {
-                                            vm.loadAudio(url: phonetic.audio)
-                                            if vm.errorMessage != nil {
-                                                showAlert = true
+                                            Task {
+                                                await vm.loadAudio(url: phonetic.audio)
+                                                if vm.errorMessage != nil {
+                                                    showAlert = true
+                                                }
                                             }
                                         } label: {
                                             HStack {
@@ -181,7 +184,7 @@ struct DetailView: View {
             .background(.cottonBall)
             .onAppear {
                 Task {
-                    await vm.fetchWordDetail(word: word.name ?? "beautiful")
+                    await vm.fetchWordDetail(word: wordName)
                 }
             }
         }
@@ -190,7 +193,7 @@ struct DetailView: View {
 
 
 #Preview {
-    DetailView(word: WordModel(id: 1, name: "Glass", level: 1,createdAt: nil,updatedAt: nil))
+    DetailView(wordName: "giRL", wordLevel: 1)
 }
 
 
