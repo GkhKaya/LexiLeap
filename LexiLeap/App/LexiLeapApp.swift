@@ -17,7 +17,7 @@ struct LexiLeapApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            RootView().preferredColorScheme(.light)
         }
     }
 }

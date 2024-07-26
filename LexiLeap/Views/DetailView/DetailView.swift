@@ -193,7 +193,7 @@ struct DetailView: View {
 
 
 #Preview {
-    DetailView(wordName: "giRL", wordLevel: 1)
+    DetailView(wordName: "Girl", wordLevel: 1)
 }
 
 

@@ -66,37 +66,42 @@ struct HomeView: View {
                         .padding(.top, ProjectPaddings.normal.rawValue)
                         
                         // Word of the day card
-                        WordCard(
-                            geometry: geometry,
-                            word: vm.wordOfDay?.name ?? "",
-                            plusAction: {},
-                            seeDetailAction: {},
-                            selectedLevel: vm.wordOfDay?.level ?? 1
-                        )
+                        Button{
+                            selectedWord = vm.wordOfDay
+                        }label:{
+                            WordCard(
+                                geometry: geometry,
+                                word: vm.wordOfDay?.name ?? "",
+                                plusAction: {},
+                                seeDetailAction: {},
+                                selectedLevel: vm.wordOfDay?.level ?? 1
+                            )
+                        }.tint(.black)
                         
-                        HStack {
-                            Text(LocaleKeys.HomeView.yourFlashcard.rawValue.locale())
-                                .padding(.top, ProjectPaddings.normal.rawValue)
-                                .modifier(DisplayNormalBold())
-                            Spacer()
-                            JustTextButton(action: {}, text: LocaleKeys.General.seeAll.rawValue.locale())
-                        }
                         
-                        HStack {
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: geometry.dw(width: 0.4), height: geometry.dh(height: 0.21))
-                                    .foregroundStyle(Color.orochimaruGray)
-                                    .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
-                            }
-                            Spacer()
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: geometry.dw(width: 0.4), height: geometry.dh(height: 0.21))
-                                    .foregroundStyle(Color.orochimaruGray)
-                                    .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
-                            }
-                        }
+//                        HStack {
+//                            Text(LocaleKeys.HomeView.yourFlashcard.rawValue.locale())
+//                                .padding(.top, ProjectPaddings.normal.rawValue)
+//                                .modifier(DisplayNormalBold())
+//                            Spacer()
+//                            JustTextButton(action: {}, text: LocaleKeys.General.seeAll.rawValue.locale())
+//                        }
+                        
+//                        HStack {
+//                            ZStack {
+//                                Rectangle()
+//                                    .frame(width: geometry.dw(width: 0.4), height: geometry.dh(height: 0.21))
+//                                    .foregroundStyle(Color.orochimaruGray)
+//                                    .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
+//                            }
+//                            Spacer()
+//                            ZStack {
+//                                Rectangle()
+//                                    .frame(width: geometry.dw(width: 0.4), height: geometry.dh(height: 0.21))
+//                                    .foregroundStyle(Color.orochimaruGray)
+//                                    .clipShape(RoundedRectangle(cornerRadius: ProjectRadius.normal.rawValue))
+//                            }
+//                        }
                     }
                     .padding(.all)
                     .navigationTitle("Homepage")
@@ -111,6 +116,8 @@ struct HomeView: View {
                         }
                     }
                 }
+                .navigationDestination(isPresented: $vm.goToSettingsView) {
+                    SettingsView()}
                 .navigationDestination(isPresented: Binding(
                     get: { selectedWord != nil },
                     set: { if !$0 { selectedWord = nil } }

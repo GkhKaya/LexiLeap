@@ -33,7 +33,7 @@ Lexileap is an open source English language learning application that uses the T
 ### UI Components
 ---
 
-#### Onboard Screens
+#### Onboard View Screens
 
 <div style= "display: flex; justify-content: space-between;">
 <image src= "./assets/Onboard_1.png" alt="Onboard1" style=" width: 30%; margin-right: 10px;">
@@ -47,9 +47,24 @@ Lexileap is an open source English language learning application that uses the T
 
 ---
 
-#### Auth Screens Screens
+#### Auth View Screens
 
 <div style= "display: flex; justify-content: space-between;">
 <image src= "./assets/Login_Page.png" alt="Login" style=" width: 30%;">
 <image src= "./assets/Register_Page.png" alt="Register" style=" width: 30%;">
+</div>
+
+---
+
+#### Homepage Screen
+
+<div style= "display: flex; justify-content: space-between;">
+<image src= "./assets/homepage.png" alt="Homepage" style=" width: 30%;">
+</div>
+
+#### Detail View Screens
+
+<div style= "display: flex; justify-content: space-between;">
+<image src= "./assets/detail_page.png" alt="Detail View" style=" width: 30%;">
+<image src= "./assets/detail_page_open_card.png" alt="Detail Page Open Card View" style=" width: 30%;">
 </div>
